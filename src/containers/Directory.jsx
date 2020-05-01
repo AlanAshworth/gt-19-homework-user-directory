@@ -1,41 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import List from "../components/List";
 import axios from "axios";
 
 class Directory extends Component {
+  state = {
+    employees: [],
+  };
 
-    state = {
-        employees: []
-      };
-    
-      componentDidMount() {
-        this.getEmployees();
-      }
-    
-      getEmployees = () => {
-        axios
-          .get("https://randomuser.me/api/?results=15")
-          .then((response) => {
-            this.setState({
-              employees: response.data.results,
-            });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
+  componentDidMount() {
+    this.getEmployees();
+  }
 
-    render() {
-        return (
-            <div>
-                <List employees={this.state.employees} />
-            </div>
-        )
-    }
+  getEmployees = () => {
+    axios
+      .get("https://randomuser.me/api/?results=15")
+      .then((response) => {
+        this.setState({
+          employees: response.data.results,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  render() {
+    return (
+      <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Photo</th>
+              <th scope="col">Name</th>
+              <th scope="col">Eamil</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Gender</th>
+            </tr>
+          </thead>
+          <List employees={this.state.employees} />
+        </table>
+      </div>
+    );
+  }
 }
 
 export default Directory;
-
 
 // import React, { Component } from "react";
 // import List from "../components/List";
