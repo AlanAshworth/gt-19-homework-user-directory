@@ -10,6 +10,7 @@ function App() {
       <div>
         <NavTabs />
         <Route exact path="/" component={Home} />
+        <Route exact path="/home" component={Home} />
         <Route path="/directory" component={Directory} />
       </div>
     </Router>
