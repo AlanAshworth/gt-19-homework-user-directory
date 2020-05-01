@@ -1,11 +1,18 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import {BrowserRouter as Router, Route } from "react-router-dom";
+import NavTabs from "./components/NavTabs";
+import Home from "./containers/Home";
+import Directory from "./containers/Directory";
 
 function App() {
   return (
-    <div>
-      
-    </div>
+    <Router>
+      <div>
+        <NavTabs />
+        <Route exact path="/" component={Home} />
+        <Route path="/directory" component={Directory} />
+      </div>
+    </Router>
   );
 }
 
