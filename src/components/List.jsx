@@ -3,7 +3,7 @@ import Detail from "./Detail";
 
 const List = (props) => {
   return (
-    <tbody className="container">
+    <tbody>
       {props.employees.map((employee) => (
         <tr>
           <Detail {...employee} key={employee.id}/>

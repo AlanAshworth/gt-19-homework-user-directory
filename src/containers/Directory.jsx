@@ -72,10 +72,13 @@ class Directory extends Component {
 
   render() {
     return (
-      <div className="container App">
-        <div className="row float-right">
+      <div className="App container">
+        <div className="row">
           <div className="col-sm-12">
-            <form className="form-inline my-2 my-lg-0" onSubmit={this.handleSubmit}>
+            <form
+              className="form-inline my-2 my-lg-0 float-right"
+              onSubmit={this.handleSubmit}
+            >
               <input
                 type="text"
                 className="form-control mr-sm-2"
@@ -101,19 +104,25 @@ class Directory extends Component {
           </div>
         </div>
 
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Photo</th>
-              <th scope="col"><a href="/" onClick={this.handleSort}>Name</a></th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Location</th>
-              <th scope="col">Gender</th>
-            </tr>
-          </thead>
-          <List employees={this.state.employeesToDisplay} />
-        </table>
+        <div className="row">
+          <table className="col-sm-12 table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Photo</th>
+                <th scope="col">
+                  <a href="/" onClick={this.handleSort}>
+                    Name
+                  </a>
+                </th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Location</th>
+                <th scope="col">Gender</th>
+              </tr>
+            </thead>
+            <List employees={this.state.employeesToDisplay} />
+          </table>
+        </div>
       </div>
     );
   }
