@@ -49,32 +49,12 @@ class Directory extends Component {
     const employees = [...this.state.employees];
     const filteredEmployees = employees.filter((employee) => {
       const regex = new RegExp(this.state.searchTerm, "gi");
-      return employee.employee_name.match(regex);
+      return employee.name.first.match(regex);
     });
     this.setState({
       employeesToDisplay: filteredEmployees,
     });
   };
-
-  // render() {
-  //   return (
-  //     <div>
-  //       <table class="table table-striped">
-  //         <thead>
-  //           <tr>
-  //             <th scope="col">Photo</th>
-  //             <th scope="col">Name</th>
-  //             <th scope="col">Email</th>
-  //             <th scope="col">Phone</th>
-  //             <th scope="col">Location</th>
-  //             <th scope="col">Gender</th>
-  //           </tr>
-  //         </thead>
-  //         <List employees={this.state.employees} />
-  //       </table>
-  //     </div>
-  //   );
-  // }
 
   render() {
     return (
@@ -99,7 +79,7 @@ class Directory extends Component {
               </button>
               <button
                 className="btn btn-outline-secondary my-2 mr-sm-2"
-                type="submit"
+                onClick={this.clearFilter}
               >
                 Clear
               </button>
@@ -107,15 +87,6 @@ class Directory extends Component {
           </div>
         </div>
 
-        {this.state.employees.length !==
-          this.state.employeesToDisplay.length && (
-          <button
-            className="btn btn-secondary"
-            onClick={this.clearFilter}
-          >
-            Clear Filter
-          </button>
-        )}
         <table class="table table-striped">
           <thead>
             <tr>
