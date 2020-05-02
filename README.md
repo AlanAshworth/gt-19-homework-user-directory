@@ -2,7 +2,7 @@
 
 An employee directory created with React.
 
-![screenshot](./02.png)
+![screenshot](./public/02.png)
 
 ## Description
 
@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The application will open on a Home splash screen.  Clicking the Directory tab at the top of the display will redirect your view to a randomly generated list of "employees". The list of employees can be filtered by using the search textbox above, or sorted by clicking on the highlighted list header.
 
-![employee-tracker-demo](./employee-tracker-demo.gif)
+![employee-tracker-demo](./public/employee-tracker-demo.gif)
 
 ## Contributing
 
