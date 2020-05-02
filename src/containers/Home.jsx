@@ -14,7 +14,7 @@ const Home = () => {
       <div className="row App">
         <div className="col">
           <span>
-            <h1>Welcome to Employee Tracker</h1>
+            <h1>Welcome to Employee Tracker!</h1>
           </span>
         </div>
       </div>
