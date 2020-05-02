@@ -23,7 +23,7 @@ class Directory extends Component {
 
   getEmployees = () => {
     axios
-      .get("https://randomuser.me/api/?results=15")
+      .get("https://randomuser.me/api/?results=20")
       .then((response) => {
         this.setState({
           employees: response.data.results,
@@ -105,7 +105,7 @@ class Directory extends Component {
         </div>
 
         <div className="row">
-          <table className="col-sm-12 table table-striped">
+          <table className="col-sm-12 table table-sm table-striped table-hover">
             <thead>
               <tr>
                 <th scope="col">Photo</th>
