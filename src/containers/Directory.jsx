@@ -56,6 +56,20 @@ class Directory extends Component {
     });
   };
 
+  handleSort = (event) => {
+    event.preventDefault();
+    console.log("HandleSort");
+    const employees = [...this.state.employees];
+    const sortedNames = employees.sort((a, b) => {
+      if (a.name.first < b.name.first) return -1;
+      else if (a.name.first > b.name.first) return 1;
+      return 0;
+    });
+    this.setState({
+      employeesToDisplay: sortedNames,
+    });
+  };
+
   render() {
     return (
       <div className="container App">
@@ -87,11 +101,11 @@ class Directory extends Component {
           </div>
         </div>
 
-        <table class="table table-striped">
+        <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">Photo</th>
-              <th scope="col">Name</th>
+              <th scope="col"><a href="/" onClick={this.handleSort}>Name</a></th>
               <th scope="col">Email</th>
               <th scope="col">Phone</th>
               <th scope="col">Location</th>
