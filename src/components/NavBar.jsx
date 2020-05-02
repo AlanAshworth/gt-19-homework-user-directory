@@ -25,7 +25,7 @@ const NavBar = () => {
               Home <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item active">
             <a className="nav-link" href="/directory">
               Directory
             </a>

@@ -32,8 +32,9 @@ class Directory extends Component {
             <tr>
               <th scope="col">Photo</th>
               <th scope="col">Name</th>
-              <th scope="col">Eamil</th>
+              <th scope="col">Email</th>
               <th scope="col">Phone</th>
+              <th scope="col">Location</th>
               <th scope="col">Gender</th>
             </tr>
           </thead>

@@ -1,15 +1,15 @@
-import React from "react";
+import React, {Fragment} from "react";
 
 const Detail = (props) => {
   return (
-    <div className="row">
-      <div className="col"><img src={props.picture.thumbnail} alt={props.name.first}></img></div>
-      <div className="col">{props.name.first} {props.name.last}</div>
-      <div className="col">{props.email}</div>
-      <div className="col">{props.phone}</div>
-      <div className="col">{props.gender}</div>
-      {/* <div className="col">{props.dob.date}</div> */}
-    </div>
+    <Fragment>
+      <th scope="row"><img src={props.picture.thumbnail} alt={props.name.first}></img></th>
+      <td className="col">{props.name.first} {props.name.last}</td>
+      <td className="col">{props.email}</td>
+      <td className="col">{props.phone}</td>
+      <td className="col">{props.location.country}</td>
+      <td className="col">{props.gender}</td>
+    </Fragment>
   );
 };
 
