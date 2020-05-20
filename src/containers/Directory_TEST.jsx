@@ -21,7 +21,7 @@ const Directory_TEST = () => {
             Header: "Photo",
             accessor: "picture.thumbnail",
             Cell: (props) => (
-              <img src={props.data[0].picture.thumbnail} alt="name.first" />
+              <img src={props.value} alt="name.first" />
             ),
           },
           {
