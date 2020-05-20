@@ -32,6 +32,11 @@ const NavBar = () => {
               Directory
             </a>
           </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/directory-test">
+              Directory_TEST
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
