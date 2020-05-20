@@ -11,7 +11,10 @@ const Table = ({ data, columns }) => {
   } = useTable({ columns, data });
 
   return (
-    <table {...getTableProps()}>
+    <table
+      className="table table-sm table-bordered table-striped table-hover"
+      {...getTableProps()}
+    >
       <thead>
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()}>
