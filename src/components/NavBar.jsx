@@ -33,8 +33,8 @@ const NavBar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/directory-test">
-              Directory_TEST
+            <a className="nav-link" href="/directory-react-table">
+              Directory (w/ react-table)
             </a>
           </li>
         </ul>

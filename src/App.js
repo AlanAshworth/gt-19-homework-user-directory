@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./containers/Home";
 import Directory from "./containers/Directory";
-import Directory_TEST from "./containers/Directory_TEST";
+import Directory_ReactTable from "./containers/Directory_React-Table";
 // import './App.css';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/directory" component={Directory} />
-          <Route path="/directory-test" component={Directory_TEST} />
+          <Route path="/directory-react-table" component={Directory_ReactTable} />
         </Switch>
       </main>
     </Router>
