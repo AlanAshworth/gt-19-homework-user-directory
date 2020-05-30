@@ -4,13 +4,13 @@ import NavBar from "./components/NavBar";
 import Home from "./containers/Home";
 import Directory from "./containers/Directory";
 import Directory_ReactTable from "./containers/Directory_React-Table";
-// import './App.css';
+import './App.css';
 
 function App() {
   return (
     <Router>
       <NavBar />
-      <main>
+      <main className="App App-header">
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/home" component={Home} />
