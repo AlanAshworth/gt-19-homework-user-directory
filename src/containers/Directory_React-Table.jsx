@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import Table from "../components/Table";
 
-const Directory_TEST = () => {
+const Directory_ReactTable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -68,4 +68,4 @@ const Directory_TEST = () => {
   );
 };
 
-export default Directory_TEST;
+export default Directory_ReactTable;
