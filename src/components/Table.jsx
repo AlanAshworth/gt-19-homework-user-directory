@@ -12,7 +12,7 @@ const Table = ({ data, columns }) => {
 
   return (
     <table
-      className="table table-sm table-bordered table-striped table-hover"
+      className="table table-sm table-bordered table-dark table-hover"
       {...getTableProps()}
     >
       <thead>
