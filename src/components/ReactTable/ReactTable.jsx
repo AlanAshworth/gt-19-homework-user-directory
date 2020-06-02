@@ -1,15 +1,36 @@
 import React, { useMemo } from "react";
-import { useTable, useSortBy } from "react-table";
+import { useTable, useSortBy, useFilters } from "react-table";
 
 const ReactTable = ({ data }) => {
+  // Define a default UI for filtering
+  function DefaultColumnFilter({ column: { filterValue, setFilter } }) {
+    return (
+      <input
+        value={filterValue || ""}
+        onChange={(e) => {
+          setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
+        }}
+        placeholder={`Filter...`}
+      />
+    );
+  }
+
   const Table = ({ columns, data }) => {
+    const defaultColumn = React.useMemo(
+      () => ({
+        // Let's set up our default Filter UI
+        Filter: DefaultColumnFilter,
+      }),
+      []
+    );
+
     const {
       getTableProps,
       getTableBodyProps,
       headerGroups,
       rows,
       prepareRow,
-    } = useTable({ columns, data }, useSortBy);
+    } = useTable({ columns, data, defaultColumn }, useFilters, useSortBy);
 
     return (
       <table
@@ -21,15 +42,19 @@ const ReactTable = ({ data }) => {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps()}>
-                  <span {...column.getSortByToggleProps()}>
-                    {column.render("Header")}
-                    {/* Add a sort direction indicator */}
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? " 🔽"
-                        : " 🔼"
-                      : ""}
-                  </span>
+                  <div>
+                    <span {...column.getSortByToggleProps()}>
+                      {column.render("Header")}
+                      {/* Add a sort direction indicator */}
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? " 🔽"
+                          : " 🔼"
+                        : ""}
+                    </span>
+                  </div>
+                  {/* Render the columns filter UI */}
+                  <div>{column.canFilter ? column.render("Filter") : null}</div>
                 </th>
               ))}
             </tr>
@@ -61,11 +86,13 @@ const ReactTable = ({ data }) => {
           {
             Header: "Photo",
             accessor: "picture.thumbnail",
+            disableFilters: true,
             Cell: (props) => <img src={props.value} alt="name.first" />,
           },
           {
             Header: "Name",
             accessor: "name.first",
+            disableFilters: false,
           },
         ],
       },
@@ -75,18 +102,22 @@ const ReactTable = ({ data }) => {
           {
             Header: "Email",
             accessor: "email",
+            disableFilters: true,
           },
           {
             Header: "Phone",
             accessor: "phone",
+            disableFilters: true,
           },
           {
             Header: "Location",
             accessor: "location.country",
+            disableFilters: true,
           },
           {
             Header: "Gender",
             accessor: "gender",
+            disableFilters: true,
           },
         ],
       },
