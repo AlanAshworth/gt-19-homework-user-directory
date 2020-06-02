@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../logo.svg";
+import logo from "../../logo.svg";
 
 const NavBar = () => {
   return (
@@ -29,11 +29,6 @@ const NavBar = () => {
           <li className="nav-item">
             <a className="nav-link" href="/directory">
               Directory
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/directory-react-table">
-              Directory (w/ react-table)
             </a>
           </li>
         </ul>
