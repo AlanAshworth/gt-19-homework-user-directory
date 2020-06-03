@@ -3,7 +3,7 @@ import { useTable, useSortBy, useFilters } from "react-table";
 
 const ReactTable = ({ data }) => {
   // Define a default UI for filtering
-  function DefaultColumnFilter({ column: { filterValue, setFilter } }) {
+  const DefaultColumnFilter = ({ column: { filterValue, setFilter } }) => {
     return (
       <input
         value={filterValue || ""}
@@ -13,21 +13,21 @@ const ReactTable = ({ data }) => {
         placeholder={`Filter...`}
       />
     );
-  }
+  };
 
   // This is a custom filter UI for selecting
   // a unique option from a list
-  function SelectColumnFilter({
+  const SelectColumnFilter = ({
     column: { filterValue, setFilter, preFilteredRows, id },
-  }) {
+  }) => {
     // Calculate the options for filtering
     // using the preFilteredRows
-    const options = React.useMemo(() => {
+    const options = useMemo(() => {
       const options = new Set();
       preFilteredRows.forEach((row) => {
         options.add(row.values[id]);
       });
-      return [...options.values()];
+      return [...options.values()].sort();
     }, [id, preFilteredRows]);
 
     // Render a multi-select box
@@ -46,10 +46,10 @@ const ReactTable = ({ data }) => {
         ))}
       </select>
     );
-  }
+  };
 
   const Table = ({ columns, data }) => {
-    const defaultColumn = React.useMemo(
+    const defaultColumn = useMemo(
       () => ({
         // Let's set up our default Filter UI
         Filter: DefaultColumnFilter,
@@ -135,7 +135,7 @@ const ReactTable = ({ data }) => {
           {
             Header: "Email",
             accessor: "email",
-            disableFilters: false,
+            disableFilters: true,
           },
           {
             Header: "Phone",
@@ -145,7 +145,9 @@ const ReactTable = ({ data }) => {
           {
             Header: "Location",
             accessor: "location.country",
-            disableFilters: true,
+            disableFilters: false,
+            Filter: SelectColumnFilter,
+            filter: "equals",
           },
           {
             Header: "Gender",
