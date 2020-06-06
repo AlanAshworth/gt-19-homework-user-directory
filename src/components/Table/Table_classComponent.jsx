@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 
 /**
- * ! Componet currently imports props from directory container without
- * ! use, either set componet to work with props or only utilize data
- * ! from getEmployees() axios call.
- * TODO: Convert class component to functional component w/ hooks
+ * * Componet set as a React State component. Component demonstrates
+ * * the use of state. Fetched data is performed exclusively for this
+ * * component.
  */
 class Table extends Component {
   state = {

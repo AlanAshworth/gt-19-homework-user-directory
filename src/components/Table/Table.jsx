@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 
+/**
+ * * Componet set as a React Hooks component. Component demonstrates the
+ * * use of hooks. Fetched data is retrieved as props from Directory
+ * * container.
+ * @param {*} data Props destructured. Arguements from Directory container
+ */
 const Table = ({ data }) => {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -69,7 +75,6 @@ const Table = ({ data }) => {
       const regex = new RegExp(searchTerm, "gi");
       return user.name.first.match(regex);
     });
-    console.log(`FilerterUsers: `, filteredUsers);
     setUsers(filteredUsers);
   };
 
