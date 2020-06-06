@@ -1,10 +1,9 @@
 import React from "react";
-import logo from "../logo.svg";
-import "../App.css";
+import logo from "../../logo.svg";
 
 const NavBar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="/">
         <img className="App-logo" src={logo} alt="logo"></img>
       </a>
