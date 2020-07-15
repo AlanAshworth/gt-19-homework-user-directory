@@ -3,8 +3,8 @@ import React, { useState, useMemo } from "react";
 /**
  * Code resource from:
  * https://www.smashingmagazine.com/2020/03/sortable-tables-react/
- * @param {*} items 
- * @param {*} config 
+ * @param {*} items
+ * @param {*} config
  */
 const useSortableData = (items, config = null) => {
   const [sortConfig, setSortConfig] = useState(config);
@@ -41,15 +41,14 @@ const useSortableData = (items, config = null) => {
 };
 
 // FIXME: Sorting not functional on columns where table data
-// has narrowing scope (i.e "location.counrty" or "name.first")
+// has narrowing scope (i.e "location.country" or "name.first")
 const Table = ({ data }) => {
+  const headers = ["photo", "name", "email", "phone", "location", "gender"];
   const { items, requestSort, sortConfig } = useSortableData(data);
   const getClassNamesFor = (name) => {
     if (!sortConfig) {
-      console.log("not sortconfig");
       return;
     }
-    console.log(`sort config`, sortConfig);
     return sortConfig.key === name ? sortConfig.direction : undefined;
   };
 
@@ -58,60 +57,17 @@ const Table = ({ data }) => {
       <table className="table table-sm table-dark table-bordered table-hover">
         <thead>
           <tr>
-            <th scope="col">
-              <button
-                type="button"
-                onClick={() => requestSort("photo")}
-                className={getClassNamesFor("photo")}
-              >
-                Photo
-              </button>
-            </th>
-            <th scope="col">
-              <button
-                type="button"
-                onClick={() => requestSort("name")}
-                className={getClassNamesFor("name")}
-              >
-                Name
-              </button>
-            </th>
-            <th scope="col">
-              <button
-                type="button"
-                onClick={() => requestSort("email")}
-                className={getClassNamesFor("email")}
-              >
-                Email
-              </button>
-            </th>
-            <th scope="col">
-              <button
-                type="button"
-                onClick={() => requestSort("phone")}
-                className={getClassNamesFor("phone")}
-              >
-                Phone
-              </button>
-            </th>
-            <th scope="col">
-              <button
-                type="button"
-                onClick={() => requestSort("location")}
-                className={getClassNamesFor("location")}
-              >
-                Location
-              </button>
-            </th>
-            <th scope="col">
-              <button
-                type="button"
-                onClick={() => requestSort("gender")}
-                className={getClassNamesFor("gender")}
-              >
-                Gender
-              </button>
-            </th>
+            {headers.map((header, index) => (
+              <th scope="col" key={index}>
+                <button
+                  type="button"
+                  onClick={() => requestSort(header)}
+                  className={getClassNamesFor(header)}
+                >
+                  {header.replace(/^\w/, (c) => c.valueOf(index).toUpperCase())}
+                </button>
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
